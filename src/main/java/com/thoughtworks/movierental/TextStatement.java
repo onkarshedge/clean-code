@@ -3,17 +3,13 @@ package com.thoughtworks.movierental;
 public class TextStatement {
     private final String customerName;
     private final Rentals rentals;
-    private final double totalAmount;
-    private final int totalFrequentRenterPoints;
 
-    public TextStatement(String customerName, Rentals rentals, double totalAmount, int totalFrequentRenterPoints) {
+    public TextStatement(String customerName, Rentals rentals) {
         this.customerName = customerName;
         this.rentals = rentals;
-        this.totalAmount = totalAmount;
-        this.totalFrequentRenterPoints = totalFrequentRenterPoints;
     }
 
-    String html() {
+    String text() {
         return header() + body() + footer();
     }
 
@@ -22,8 +18,8 @@ public class TextStatement {
     }
 
     private String footer() {
-        String result = "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(this.totalFrequentRenterPoints)
+        String result = "Amount owed is " + String.valueOf(rentals.totalAmount()) + "\n";
+        result += "You earned " + String.valueOf(rentals.totalFrequentRenterPoints())
                 + " frequent renter points";
         return result;
     }

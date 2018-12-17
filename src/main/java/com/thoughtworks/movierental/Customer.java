@@ -17,9 +17,7 @@ public class Customer {
     }
 
     public String statement() {
-        double totalAmount = rentals.totalAmount();
-        int totalFrequentRenterPoints = rentals.totalFrequentRenterPoints();
-        return new TextStatement(name, rentals, totalAmount, totalFrequentRenterPoints).html();
+        return new TextStatement(name, rentals).text();
     }
 }
 
