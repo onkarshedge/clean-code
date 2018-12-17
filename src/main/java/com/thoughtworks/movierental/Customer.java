@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Customer {
     private String name;
-    private List<Rental> rentals = new ArrayList<>();
+    private Rentals rentals = new Rentals();
 
     public Customer(String name) {
         this.name = name;
@@ -20,8 +20,8 @@ public class Customer {
     }
 
     public String statement() {
-        double totalAmount = Rental.totalAmount(rentals);
-        int totalFrequentRenterPoints = Rental.totalFrequentRenterPoints(rentals);
+        double totalAmount = rentals.totalAmount();
+        int totalFrequentRenterPoints = rentals.totalFrequentRenterPoints();
         return header() + body() + footer(totalAmount, totalFrequentRenterPoints);
     }
 

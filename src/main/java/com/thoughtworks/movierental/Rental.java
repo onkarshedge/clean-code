@@ -12,24 +12,7 @@ public class Rental {
     this.daysRented = daysRented;
   }
 
-   static double totalAmount(List<Rental> rentals) {
-      double totalAmount = 0;
-      for (Rental rental : rentals) {
-          totalAmount += rental.amount();
-      }
-      return totalAmount;
-  }
-
-  static int totalFrequentRenterPoints(List<Rental> rentals) {
-      int frequentRenterPoints = 0;
-      for (Rental rental : rentals) {
-          frequentRenterPoints++;
-          if (rental.isFrequentRenter()) frequentRenterPoints++;
-      }
-      return frequentRenterPoints;
-  }
-
-  double amount() {
+    double amount() {
     double amount = 0;
     //determine amounts for each line
     switch (getMovie().getPriceCode()) {
@@ -58,7 +41,7 @@ public class Rental {
     return movie;
   }
 
-  private boolean isFrequentRenter() {
+  boolean isFrequentRenter() {
       return movie.isNewRelease() && getDaysRented() > 1;
   }
 
